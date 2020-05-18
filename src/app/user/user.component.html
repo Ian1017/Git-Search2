@@ -1,28 +1,29 @@
 
 <div class="container-fluid">
     <div class="overlay">
+        <app-form (searchOutput)= "searchs($event)"></app-form>
         <div class="container content">
           <div class="row">
             <div class="col-sm-4" id="imgcard">
               <div class="userimage">
                 <div class="card-img-top">
-                  <img src="" alt="">
+                  <img src="{{user.avatar_url}}" alt="">
                 </div>
                 <div class="card-body">
-                    <span  class="name"><i class="fa fa-user" style="font-size:20px"></i> </span> <a href="#"><button class="btn-outline-success btn btn-sm"><i class="fa fa-github" style="font-size:20px"></i> &nbsp; <span id="profile">Github</span> </button></a>
+                    <span  class="name"><i class="fa fa-user" style="font-size:20px"></i>&nbsp;{{user.login}} </span> <a href="{{user.html_url}}"><button class="btn-outline-success btn btn-sm"><i class="fa fa-github" style="font-size:20px"></i> &nbsp; <span id="profile">Github</span> </button></a>
                 </div>
               </div>
               </div>
             <div class="col-sm-7 user">
               <div class="card" >
                 <div class="card-body">
-                  <h4>Git-Search:}</h4>
+                  <h4>Git-Search:{{user.login}}</h4>
                   <hr>
-                  <p><i class="fa fa-file-o" style="font-size:18px"></i>&nbsp;&nbsp; Repositories:&nbsp;&nbsp; <span class="follow">Repo</span></p>
+                  <p><i class="fa fa-file-o" style="font-size:18px"></i>&nbsp;&nbsp; Repositories:&nbsp;&nbsp; <span class="follow">{{user.public_repos}}</span></p>
                   <hr>
-                  <p> <i class="fa fa-user" style="font-size:18px"></i>&nbsp;&nbsp; Following:&nbsp;&nbsp; <span class="follow">Following</span></p>
+                  <p> <i class="fa fa-user" style="font-size:18px"></i>&nbsp;&nbsp; Following:&nbsp;&nbsp; <span class="follow">{{user.following}}</span></p>
                   <hr>
-                  <p> <i class="fa fa-users"style="font-size:18px"></i>&nbsp;&nbsp; Followers:&nbsp;&nbsp; <span class="follow">Followers</span></p>
+                  <p> <i class="fa fa-users"style="font-size:18px"></i>&nbsp;&nbsp; Followers:&nbsp;&nbsp; <span class="follow">{{user.followers}}</span></p>
                   <hr>
                 </div>
               </div>
@@ -34,23 +35,23 @@
             <h2>Repositories</h2>
           </div>
         <div class="container allrepos">
-          <div class="card" style="width: 22rem;" class="repo">
+          <div class="card"  *ngFor="let repos of repo" style="width: 22rem;" class="repo">
             <div class="card-body" >
-              <h5 class="card-title"><span class="top">Repo Name:</span></h5>
+              <h5 class="card-title"><span class="top">Repo Name:</span> &nbsp;{{repos.name}} </h5>
               <div class="card-text">
                 <hr>
-                <div class="desc"><span class="top">Description:</span>
+                <div class="desc"><span class="top">Description:</span> &nbsp;{{repos.description}}
                 </div>
                 <hr>
                 <div class="card-subtitle mb-2">
-                    <span class="top">Language: </span>
+                    <span class="top">Language: </span> {{repos.language}}
                 </div>
-                <div class="card-subtitle mb-2">
-                  <span class="top">Created on : </span>
-              </div>
+                <div class="card-subtitle mb-2"><span class="top">Created:&nbsp; <span id="created">{{repos.created_at | date}}</span> &nbsp;  On:</span> &nbsp;{{repos.created_at | date}}`
+                </div>
               </div>
               </div>
           </div>
         </div>
     </div>
     </div>
+  
