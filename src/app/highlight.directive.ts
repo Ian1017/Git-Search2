@@ -3,7 +3,7 @@ import { Directive, ElementRef, HostListener, HostBinding } from '@angular/core'
 @Directive({
   selector: '[appHightlight]'
 })
-export class HightlightDirective {
+export class HighlightDirective {
 
   constructor(private elem: ElementRef) { }
 
