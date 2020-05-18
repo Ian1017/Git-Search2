@@ -1,4 +1,6 @@
+import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
+import { Repo } from '../repo';
 
 @Component({
   selector: 'app-repo',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RepoComponent implements OnInit {
 
-  constructor() { }
+  repo: Repo;
+  constructor(public repService: UserService) { }
 
-  ngOnInit(): void {
+  repoSearch(searchName) {
+    this.repService.getRepos(searchName).then(
+      (results) => {
+        this.repo = this.repService.getRepo;
+        console.log(this.repo);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  ngOnInit() {
   }
 
 }
