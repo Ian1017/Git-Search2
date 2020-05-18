@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-
+  @Output()  searchOutput = new EventEmitter<any>();
+  
   constructor() { }
 
   ngOnInit(): void {
