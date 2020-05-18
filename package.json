@@ -1,5 +1,5 @@
 {
-  "name": "git-search",
+  "name": "git-search2",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -34,6 +34,7 @@
     "@types/node": "^12.11.1",
     "angular-cli-ghpages": "^0.6.2",
     "codelyzer": "^5.1.2",
+    "gh-pages": "^2.2.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~5.0.0",
