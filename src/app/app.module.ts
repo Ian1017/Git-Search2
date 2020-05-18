@@ -11,6 +11,7 @@ import { RepoComponent } from './repo/repo.component';
 import { UserComponent } from './user/user.component';
 import { DatePipe } from './date.pipe';
 import { HighlightDirective } from './highlight.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { HighlightDirective } from './highlight.directive';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
